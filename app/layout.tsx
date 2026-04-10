@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+    icons: {
+    icon: '/pic.png', 
+  },
   title: "Hari Charan | Full Stack Developer",
   description: "Full Stack MERN Developer specializing in React, Node.js and MongoDB.",
   openGraph: {
