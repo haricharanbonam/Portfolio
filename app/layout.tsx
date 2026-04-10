@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    icons: {
-    icon: '/pic.png', 
-  },
+  metadataBase: new URL("https://haricharanbonam.tech"),
+
   title: "Hari Charan | Full Stack Developer",
   description: "Full Stack MERN Developer specializing in React, Node.js and MongoDB.",
+
+  icons: {
+    icon: "/pic.png",
+  },
+
   openGraph: {
     title: "Hari Charan | Full Stack Developer",
     description: "Full Stack MERN Developer specializing in React, Node.js and MongoDB.",
@@ -14,8 +18,8 @@ export const metadata: Metadata = {
     siteName: "Hari Charan Portfolio",
     images: [
       {
-        url: "https://haricharanbonam.tech/pic.png", 
-        width: 630,
+        url: "http://haricharanbonam.tech/pic.png",
+        width: 1200,
         height: 630,
       },
     ],
@@ -25,9 +29,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;  
-}>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>{children}</body>
