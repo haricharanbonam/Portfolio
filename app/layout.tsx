@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Clarity from "@microsoft/clarity";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://haricharanbonam.tech"),
@@ -32,6 +33,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
+  if (clarityId) {
+    Clarity.init(clarityId);
+  }
   return (
     <html lang="en">
       <body>{children}</body>
