@@ -396,20 +396,29 @@ export default function Home() {
             <Code2 size={24} />
             <span>HC</span>
           </div>
-          <div className="nav-links">
-            {(['home', 'about', 'experience', 'projects', 'skills', 'contact'] as const).map(
-              (section) => (
-                <a
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={activeSection === section ? 'active' : ''}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </a>
-              )
-            )}
-          </div>
+<div className="nav-links">
+  {(['home', 'about', 'experience', 'projects', 'skills', 'contact', 'blogs'] as const).map(
+    (section) =>
+      section === 'blogs' ? (
+        <a
+          key={section}
+          href="/blogs"
+          className={activeSection === section ? 'active' : ''}
+        >
+          Blogs
+        </a>
+      ) : (
+        <a
+          key={section}
+          onClick={() => scrollToSection(section)}
+          className={activeSection === section ? 'active' : ''}
+          style={{ cursor: 'pointer' }}
+        >
+          {section.charAt(0).toUpperCase() + section.slice(1)}
+        </a>
+      )
+  )}
+</div>
         </div>
       </nav>
 
@@ -754,6 +763,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="footer">
