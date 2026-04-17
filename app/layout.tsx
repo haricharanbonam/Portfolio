@@ -39,6 +39,13 @@ export default function RootLayout({
   }
   return (
     <html lang="en">
+      <head>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <meta name="msvalidate.01" content="24A26636587F0290B7D8AE4812D8B313" />
+</head>
       <body>{children}</body>
     </html>
   );
