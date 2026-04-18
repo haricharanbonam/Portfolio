@@ -145,7 +145,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 
 // ─── Blog content ──────────────────────────────────────────────────────────
 
-export default function BlogPost() {
+export default function DevTricksBlog() {
   return (
     <main
       style={{
@@ -420,7 +420,7 @@ osascript -e 'tell app "Terminal" to do script "cd '$(pwd)'/object-detection && 
           The point isn&apos;t the script itself — it&apos;s the habit. Any command you find
           yourself typing more than twice a day deserves a shortcut. Your fingers will thank you
           sometime around the 200th time you would have typed{' '}
-          <code style={{ color: '#6366f1' }}>cd client && npm run dev</code>.
+          <code style={{ color: '#6366f1' }}>cd client &amp;&amp; npm run dev</code>.
         </P>
 
         {/* Closing */}
