@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Full Stack MERN Developer specializing in React, Node.js and MongoDB.",
 
   icons: {
-    icon: "/pic.png",
+    icon: "http://haricharanbonam.tech/pic.png",
   },
 
   openGraph: {
