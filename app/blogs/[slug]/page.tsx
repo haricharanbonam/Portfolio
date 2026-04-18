@@ -30,6 +30,9 @@ export async function generateMetadata({
   return {
     title: `${blog.title} | Hari Charan`,
     description: blog.description,
+    icons: {
+      icon: 'http://haricharanbonam.tech/pic.png',
+    },
     openGraph: {
       title: blog.title,
       description: blog.description,

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Blogs | Hari Charan',
   description:
     'Dev notes, debugging stories, and workflow tricks. No fluff — just the stuff that actually came up while building real things.',
+  icons: {
+    icon: 'http://haricharanbonam.tech/pic.png',
+  },
 };
 
 export default function BlogsPage() {
