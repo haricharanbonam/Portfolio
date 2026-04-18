@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Dev notes, debugging stories, and workflow tricks. No fluff — just the stuff that actually came up while building real things.',
   icons: {
-    icon: 'http://haricharanbonam.tech/pic.png',
+    icon: 'https://haricharanbonam.tech/pic.png',
   },
 };
 
