@@ -20,5 +20,14 @@ export const allBlogs: BlogMeta[] = [
     tags: ['Node.js', 'DX', 'Productivity'],
     coverEmoji: '🛠️',
   },
-  // add more blogs here later
+  {
+    slug: 'it-works-on-my-machine',
+    title: 'It works on my machine — and why that’s not an excuse',
+    description:
+      'The classic developer line is a symptom of deeper issues in how we build, test, and deploy. Here’s how to escape the “it works on my machine” trap.',
+    date: 'April 21, 2025',
+    readTime: '7 min read',
+    tags: ['Deployment', 'Node.js', 'Debugging'],
+    coverEmoji: '💻',
+  },
 ];

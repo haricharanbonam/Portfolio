@@ -3,10 +3,12 @@ import { notFound } from 'next/navigation';
 import { allBlogs } from '../data';
 import DevTricksBlog from '../components/DevTricksBlog';
 import type { ReactNode } from 'react';
+import ItWorksBlog from '../components/Itworksblog';
 
 // ─── Map each slug to its content component ────────────────────────────────
 const blogContentMap: Record<string, ReactNode> = {
   'dev-tricks-that-save-hours': <DevTricksBlog />,
+   'it-works-on-my-machine': <ItWorksBlog />, 
 };
 
 // ─── Static params: pre-render all known slugs at build time ───────────────
