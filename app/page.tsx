@@ -10,11 +10,12 @@ import {
   ExternalLink,
   GraduationCap,
   Briefcase,
-
+  Users,
   Mail,
   Phone,
   MapPin,
   Award,
+  Computer
 } from 'lucide-react';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -97,8 +98,8 @@ const portfolioData:PortfolioData = {
   },
   
   socials: {
-    github: "https://github.com/haricharan2507",
-    linkedin: "https://www.linkedin.com/in/hari-charan-bonam",
+    github: "https://github.com/haricharanbonam",
+    linkedin: "https://www.linkedin.com/in/haricharanbonam",
     leetcode: "https://leetcode.com/u/haricharanbonam",
     hackerrank: "https://www.hackerrank.com/haricharanbonam"
   },
@@ -183,6 +184,7 @@ const portfolioData:PortfolioData = {
         "Optimized performance"
       ],
       github: "https://github.com/haricharanbonam/whoami",
+      live: "http://haricharanbonam.tech/",
     }
   ],
 
@@ -731,10 +733,10 @@ export default function Home() {
             </div>
             <div className="contact-socials">
               {[
-                { href: portfolioData.socials.github, icon: <Briefcase size={32} />, label: 'GitHub' },
+                { href: portfolioData.socials.github, icon: <Computer size={32} />, label: 'GitHub' },
                 {
                   href: portfolioData.socials.linkedin,
-                  icon: <Briefcase/>,
+                  icon: <Users size={32} />,
                   label: 'LinkedIn',
                 },
                 {
