@@ -2,13 +2,15 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { allBlogs } from '../data';
 import DevTricksBlog from '../components/DevTricksBlog';
-import type { ReactNode } from 'react';
 import ItWorksBlog from '../components/Itworksblog';
+import VercelBlog from '../components/VercelBlog';
+import type { ReactNode } from 'react';
 
 // ─── Map each slug to its content component ────────────────────────────────
 const blogContentMap: Record<string, ReactNode> = {
   'dev-tricks-that-save-hours': <DevTricksBlog />,
-   'it-works-on-my-machine': <ItWorksBlog />, 
+  'it-works-on-my-machine': <ItWorksBlog />,
+  'how-vercel-works-part-1': <VercelBlog />,
 };
 
 // ─── Static params: pre-render all known slugs at build time ───────────────

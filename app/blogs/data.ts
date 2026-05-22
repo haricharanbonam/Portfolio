@@ -29,5 +29,13 @@ export const allBlogs: BlogMeta[] = [
     readTime: '7 min read',
     tags: ['Deployment', 'Node.js', 'Debugging'],
     coverEmoji: '💻',
-  },
-];
+  },  {
+    slug: 'how-vercel-works-part-1',
+    title: 'Building Our Own Vercel — Part 1: EC2 + Nginx Setup',
+    description:
+      'Ever wondered how Vercel generates subdomains and maps them to your project? In this series, we build our own deployment platform from scratch. Part 1: spinning up an EC2 instance and getting Nginx running.',
+    date: 'May 1, 2025',
+    readTime: '7 min read',
+    tags: ['DevOps', 'AWS', 'Nginx'],
+    coverEmoji: '🚀',
+  },];
