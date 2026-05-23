@@ -33,8 +33,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-   const clarityId = process.env.PROJECT_ID;
+   const clarityId = process.env.NEXT_PUBLIC_PROJECT_ID;
   if (clarityId) {
+    console.log(clarityId);
     Clarity.init(clarityId);
   }
   return (
