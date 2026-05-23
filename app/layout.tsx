@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Clarity from "@microsoft/clarity";
+import ClarityProvider from "./ClarityProvider";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://haricharanbonam.tech"),
@@ -33,11 +34,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-   const clarityId = process.env.NEXT_PUBLIC_PROJECT_ID;
-  if (clarityId) {
-    console.log(clarityId);
-    Clarity.init(clarityId);
-  }
+
   return (
     <html lang="en">
       <head>
@@ -47,7 +44,9 @@ export default function RootLayout({
   />
   <meta name="msvalidate.01" content="24A26636587F0290B7D8AE4812D8B313" />
 </head>
-      <body>{children}</body>
+      <body>
+  <ClarityProvider />
+        {children}</body>
     </html>
   );
 }
