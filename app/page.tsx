@@ -437,6 +437,7 @@ export default function Home() {
     window.addEventListener('mousemove', handleMouseMove);
 
     // Dynamic navbar highlight via IntersectionObserver
+    // rootMargin fires when section top enters the viewport's middle band
     const sectionIds = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
     const observers: IntersectionObserver[] = [];
 
@@ -449,7 +450,10 @@ export default function Home() {
             setActiveSection(id);
           }
         },
-        { threshold: 0.4 }
+        {
+          rootMargin: '-10% 0px -45% 0px',
+          threshold: 0,
+        }
       );
       observer.observe(el);
       observers.push(observer);
