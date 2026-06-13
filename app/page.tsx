@@ -29,7 +29,10 @@ interface Education {
 
 interface Experience {
   role: string;
+  caption?: string;
   company: string;
+  companyUrl?: string;
+  companyLogo?: string;
   duration: string;
   highlights: string[];
 }
@@ -44,12 +47,16 @@ interface Project {
   status?: string;
 }
 
+interface SkillItem {
+  name: string;
+  icon?: string; // devicon class
+}
+
 interface Skills {
-  languages: string[];
-  webTech: string[];
-  databases: string[];
-  tools: string[];
-  concepts: string[];
+  languages: SkillItem[];
+  webTech: SkillItem[];
+  databases: SkillItem[];
+  tools: SkillItem[];
 }
 
 interface Certification {
@@ -105,11 +112,37 @@ const portfolioData:PortfolioData = {
   },
 
   skills: {
-    languages: ["Python", "JavaScript", "Java", "C", "SQL"],
-    webTech: ["HTML", "CSS", "React", "Node.js", "Express.js"],
-    databases: ["MongoDB", "MySQL"],
-    tools: ["Git", "GitHub", "Postman", "SQL Workbench"],
-    concepts: ["OOP", "DSA", "REST APIs"]
+    languages: [
+      { name: "Python", icon: "devicon-python-plain colored" },
+      { name: "JavaScript", icon: "devicon-javascript-plain colored" },
+      { name: "Java", icon: "devicon-java-plain colored" },
+      { name: "C", icon: "devicon-c-plain colored" },
+      { name: "SQL", icon: "devicon-azuresqldatabase-plain colored" },
+      { name: "TypeScript", icon: "devicon-typescript-plain colored" },
+    ],
+    webTech: [
+      { name: "HTML", icon: "devicon-html5-plain colored" },
+      { name: "CSS", icon: "devicon-css3-plain colored" },
+      { name: "React", icon: "devicon-react-original colored" },
+      { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+      { name: "Express.js", icon: "devicon-express-original" },
+      { name: "Next.js", icon: "devicon-nextjs-plain" },
+      { name: "Flask", icon: "devicon-flask-original" },
+    ],
+    databases: [
+      { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
+      { name: "MySQL", icon: "devicon-mysql-plain colored" },
+    ],
+    tools: [
+      { name: "Git", icon: "devicon-git-plain colored" },
+      { name: "GitHub", icon: "devicon-github-plain" },
+      { name: "Postman", icon: "devicon-postman-plain colored" },
+      { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+      { name: "CI/CD", icon: "devicon-githubactions-plain colored" },
+      { name: "Docker", icon: "devicon-docker-plain colored" },
+      { name: "VS Code", icon: "devicon-vscode-plain colored" },
+      { name: "Linux", icon: "devicon-linux-plain" },
+    ],
   },
 
   education: [
@@ -135,15 +168,18 @@ const portfolioData:PortfolioData = {
 
   experience: [
     {
-      role: "MERN Stack Developer",
+      role: "Founding Engineer (MERN Stack)",
+      caption: "Founding Engineer",
       company: "GenZ Galaxy Tech Solutions, Hyderabad",
+      companyUrl: "https://plexis.in",
+      companyLogo: "https://crm-client-main-branch.vercel.app/assets/logo-CtWZqSaM.png",
       duration: "July 2025 – Present",
       highlights: [
-        "Developed key features for the company's product including CRM dashboards, client-facing gallery modules with sharing functionality, and the main landing page using React and Node.js",
-        "Contributed to both frontend (JavaScript) and backend (TypeScript) development, implementing controller logic, schema design, and REST API integration using Express.js and MongoDB",
-        "Conducted comprehensive competitor analysis research on similar platforms to identify feature gaps and inform product roadmap decisions",
-        "Actively involved in end-to-end testing workflows, bug identification, validation, and quality assurance before deployment",
-        "Collaborated using Git-based version control and followed industry-standard development practices in a team environment"
+        "Developed and owned full-stack features across 10+ modules of Plexis, an AI-powered CRM platform, including dashboard, lead forms, gallery, and client management using the MERN stack",
+        "Eliminated 10+ redundant API calls through a targeted codebase audit, reducing network overhead and improving backend response efficiency",
+        "Sole developer on the gallery module — implemented lazy-loading with thumbnail previews and perceptual hashing, reducing load time from ~30s to under 3s (~90% improvement)",
+        "Integrated AWS Rekognition for Facial Recognition — built an indexed face-matching pipeline using AWS Rekognition to enable identity verification within the platform",
+        "Conducted competitor analysis and feature gap research to inform product decisions; contributed to Agile sprint planning with weekend deployment cycles"
       ]
     }
   ],
@@ -175,13 +211,38 @@ const portfolioData:PortfolioData = {
       status: "Ongoing"
     },
     {
+      name: "Harcel",
+      description: "Lightweight deployment platform — deploy static sites and React apps in seconds from GitHub or file upload, with auto-generated public URLs",
+      tech: ["React", "Vite", "Node.js", "Express.js"],
+      highlights: [
+        "Deploy from public GitHub repos or direct file upload in one click",
+        "Supports HTML and React (Vite) project types with build pipeline",
+        "Auto-generates unique site IDs and public deployment URLs",
+        "Clean deployment progress UI with copy/open URL functionality"
+      ],
+      github: "https://github.com/haricharanbonam/harcel",
+      live: "https://harcel.vercel.app",
+    },
+    {
+      name: "GPT Hashtag Templates",
+      description: "Chrome extension that supercharges ChatGPT with instant reusable prompt templates triggered by typing # in the input box",
+      tech: ["JavaScript", "Chrome Extensions MV3", "Chrome Storage API", "CSS"],
+      highlights: [
+        "Trigger saved templates instantly by typing # — filter as you type",
+        "Add, edit, delete templates via a clean modal UI",
+        "Keyboard navigation support for fast template selection",
+        "Ships with starter templates: brainstorm, debug, teach, review, and more"
+      ],
+      github: "https://github.com/haricharanbonam/gpt-extension",
+    },
+    {
       name: "Portfolio Website",
       description: "Personal portfolio showcasing projects and skills",
-      tech: ["React", "CSS"],
+      tech: ["Next.js", "TypeScript", "CSS"],
       highlights: [
-        "Responsive design with modern UI/UX",
-        "Interactive animations and transitions",
-        "Optimized performance"
+        "Responsive design with modern UI/UX and particle animations",
+        "Interactive micro-animations and smooth scroll transitions",
+        "SEO-optimized with semantic HTML and meta tags"
       ],
       github: "https://github.com/haricharanbonam/whoami",
       live: "http://haricharanbonam.tech/",
@@ -375,9 +436,29 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
 
+    // Dynamic navbar highlight via IntersectionObserver
+    const sectionIds = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { threshold: 0.4 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
+      observers.forEach((obs) => obs.disconnect());
     };
   }, []);
 
@@ -478,11 +559,11 @@ export default function Home() {
 
             <div className="hero-stats-mini">
               <div className="stat-mini">
-                <span className="stat-mini-number">9.26</span>
-                <span className="stat-mini-label">CGPA</span>
+                <span className="stat-mini-number">1000+</span>
+                <span className="stat-mini-label">Problems Solved</span>
               </div>
               <div className="stat-mini">
-                <span className="stat-mini-number">3+</span>
+                <span className="stat-mini-number">5+</span>
                 <span className="stat-mini-label">Projects</span>
               </div>
               <div className="stat-mini">
@@ -544,8 +625,8 @@ export default function Home() {
               <p className="about-bio">{portfolioData.personal.bio}</p>
               <div className="about-stats">
                 {[
-                  { number: '9.26', label: 'CGPA' },
-                  { number: '3+', label: 'Projects' },
+                  { number: '1000+', label: 'Problems Solved' },
+                  { number: '5+', label: 'Projects' },
                   { number: '4★', label: 'HackerRank' },
                 ].map((stat) => (
                   <div key={stat.label} className="stat-item">
@@ -581,11 +662,26 @@ export default function Home() {
           {portfolioData.experience.map((exp, i) => (
             <div key={i} className="experience-card">
               <div className="exp-header">
-                <div>
-                  <h3>{exp.role}</h3>
-                  <p className="exp-company">
-                    <Briefcase size={16} /> {exp.company}
-                  </p>
+                <div className="exp-header-left">
+                  {exp.companyLogo && (
+                    <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="exp-logo-link">
+                      <img src={exp.companyLogo} alt={exp.company} className="exp-logo" />
+                    </a>
+                  )}
+                  <div>
+                    <div className="exp-role-row">
+                      <h3>{exp.role}</h3>
+                      {exp.caption && <span className="exp-caption">{exp.caption}</span>}
+                    </div>
+                    <p className="exp-company">
+                      <Briefcase size={16} />
+                      {exp.companyUrl ? (
+                        <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="exp-company-link">
+                          {exp.company}
+                        </a>
+                      ) : exp.company}
+                    </p>
+                  </div>
                 </div>
                 <span className="exp-duration">{exp.duration}</span>
               </div>
@@ -653,18 +749,16 @@ export default function Home() {
                 { label: 'Languages', key: 'languages' },
                 { label: 'Web Technologies', key: 'webTech' },
                 { label: 'Databases', key: 'databases' },
-                { label: 'Tools & Others', key: 'tools' },
+                { label: 'Tools & DevOps', key: 'tools' },
               ] as { label: string; key: keyof Skills }[]
             ).map(({ label, key }) => (
               <div key={key} className="skill-category">
                 <h3>{label}</h3>
                 <div className="skill-items">
-                  {(key === 'tools'
-                    ? [...portfolioData.skills.tools, ...portfolioData.skills.concepts]
-                    : portfolioData.skills[key]
-                  ).map((skill, i) => (
+                  {portfolioData.skills[key].map((skill, i) => (
                     <div key={i} className="skill-orb" style={{ animationDelay: `${i * 0.05}s` }}>
-                      <span>{skill}</span>
+                      {skill.icon && <i className={`${skill.icon} skill-icon`}></i>}
+                      <span>{skill.name}</span>
                     </div>
                   ))}
                 </div>

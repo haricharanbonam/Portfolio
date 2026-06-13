@@ -861,6 +861,80 @@ body {
   line-height: 1.2;
 }
 
+/* Experience Header Layout */
+.exp-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.exp-logo-link {
+  flex-shrink: 0;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-logo-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px var(--glow);
+}
+
+.exp-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border-bright);
+}
+
+.exp-role-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.exp-caption {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.exp-company-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.exp-company-link:hover {
+  color: var(--primary-light);
+  text-shadow: 0 0 12px var(--glow);
+}
+
+/* Skill Icon Styles */
+.skill-icon {
+  font-size: 2rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.skill-orb:hover .skill-icon {
+  transform: scale(1.2) rotate(-5deg);
+}
+
 /* Projects Section */
 .projects-section {
   background: var(--bg-secondary);
@@ -996,8 +1070,27 @@ body {
 /* Skills Section */
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
+}
+
+/* Tools & DevOps: last category spans full width and centers */
+.skills-container .skill-category:last-child {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-container .skill-category:last-child .skill-items {
+  max-width: 700px;
+  justify-content: center;
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .skill-category h3 {
@@ -1026,16 +1119,27 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  align-items: center;
 }
 
 .skill-orb {
-  padding: 1.2rem 1.8rem;
+  /* layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  /* sizing */
+  padding: 1.2rem 1.4rem;
+  min-width: 90px;
+  /* look */
   background: var(--bg-card);
   backdrop-filter: blur(10px);
   border: 2px solid var(--border);
-  border-radius: 50px;
+  border-radius: 20px;
   color: var(--text-primary);
   font-weight: 600;
+  text-align: center;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
   position: relative;
@@ -1067,6 +1171,8 @@ body {
 .skill-orb span {
   position: relative;
   z-index: 1;
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .skill-orb:hover {
@@ -1080,6 +1186,10 @@ body {
 }
 
 .skill-orb:hover span {
+  color: white;
+}
+
+.skill-orb:hover .skill-icon {
   color: white;
 }
 
@@ -1318,6 +1428,14 @@ body {
 
   .nav-links {
     gap: 1.5rem;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-container .skill-category:last-child {
+    grid-column: auto;
   }
 }
 

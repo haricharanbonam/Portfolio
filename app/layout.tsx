@@ -42,6 +42,10 @@ export default function RootLayout({
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600;700&display=swap"
     rel="stylesheet"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+  />
   <meta name="msvalidate.01" content="24A26636587F0290B7D8AE4812D8B313" />
 </head>
       <body>
