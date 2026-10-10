@@ -1,0 +1,36 @@
+# Hari Charan Portfolio
+
+> Personal portfolio and blog of Hari Charan Bonam.
+
+## About
+- Name: Hari Charan Bonam
+- Title: MERN Stack Developer
+- Tagline: Crafting Digital Experiences That Matter
+- Bio: Computer Science undergraduate with hands-on experience in MERN stack development, backend systems, REST API development, database design, and application testing.
+- Location: Bhimavaram, India
+- Website: https://haricharanbonam.tech
+
+## Profiles
+- GitHub: https://github.com/haricharanbonam
+- LinkedIn: https://www.linkedin.com/in/haricharanbonam
+- LeetCode: https://leetcode.com/u/haricharanbonam
+- HackerRank: https://www.hackerrank.com/haricharanbonam
+
+## Blogs
+- Small things I wish someone told me before I wasted hours debugging nothing
+  - URL: https://haricharanbonam.tech/blogs/dev-tricks-that-save-hours
+  - Date: April 17, 2025
+  - Read time: 6 min read
+  - Summary: Practical debugging and workflow fixes for common day-to-day developer issues.
+
+- It works on my machine — and why that’s not an excuse
+  - URL: https://haricharanbonam.tech/blogs/it-works-on-my-machine
+  - Date: April 21, 2025
+  - Read time: 7 min read
+  - Summary: Why environment differences break apps and how to avoid deployment-time surprises.
+
+- Building Our Own Vercel — Part 1: EC2 + Nginx Setup
+  - URL: https://haricharanbonam.tech/blogs/how-vercel-works-part-1
+  - Date: May 1, 2025
+  - Read time: 7 min read
+  - Summary: Start of a deployment-platform series covering EC2 setup and Nginx fundamentals.
