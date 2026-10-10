@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, lazy, Suspense } from 'react';
 import {
   Code2,
   Terminal,
@@ -17,6 +17,8 @@ import {
   Award,
   Computer
 } from 'lucide-react';
+
+const TerminalMode = lazy(() => import('./components/TerminalMode'));
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -428,6 +430,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [terminalOpen, setTerminalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -435,6 +438,15 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
+
+    // Keyboard shortcut: Ctrl+` or Ctrl+Shift+` opens terminal (like VS Code)
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key === '`') {
+        e.preventDefault();
+        setTerminalOpen((open) => !open);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
 
     // Dynamic navbar highlight via IntersectionObserver
     // rootMargin fires when section top enters the viewport's middle band
@@ -462,6 +474,7 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('keydown', handleKeyDown);
       observers.forEach((obs) => obs.disconnect());
     };
   }, []);
@@ -476,6 +489,13 @@ export default function Home() {
 
   return (
     <div className="app">
+      {/* Terminal overlay */}
+      {terminalOpen && (
+        <Suspense fallback={null}>
+          <TerminalMode onClose={() => setTerminalOpen(false)} />
+        </Suspense>
+      )}
+
       {/* Navigation */}
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-content">
@@ -505,6 +525,16 @@ export default function Home() {
         </a>
       )
   )}
+  <button
+    className="tm-trigger-btn"
+    onClick={() => setTerminalOpen(true)}
+    title="Open terminal mode"
+    aria-label="Open terminal mode"
+  >
+    <Terminal size={13} />
+    <span>terminal</span>
+    <span className="tm-trigger-cursor" />
+  </button>
 </div>
         </div>
       </nav>
